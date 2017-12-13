@@ -1,9 +1,8 @@
 const express = require('express');
-const path = require('path');
 
 const app = express();
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4001;
 
 const bodyParser = require('body-parser');
 
@@ -11,11 +10,16 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
+// app.use(express.static('views'));
+
+const Routes = require('./routes/route');
 
 app.get('/', (req, res) => {
-  res.sendFile(`${__dirname}/index.html`);
+  res.send('Hello from root route (index.js)');
 });
+
+app.use('/track', Routes); // all the routes to start from /todo/...
 
 app.listen(port, () => {
   console.log(`App is running on ${port}`);
