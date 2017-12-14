@@ -16,8 +16,22 @@ const ttSchema = new mongoose.Schema({
   created_By: {
     type: String,
   },
+  tasks: [{
+    activity: {
+      type: String,
+      required: 'Activity cannot be blank!',
+    },
+    completed: {
+      type: Boolean,
+      default: false,
+    },
+    created_date: {
+      type: Date,
+      default: Date.now,
+    },
+  }],
 });
 
-const Model = mongoose.model('Model', ttSchema);
+const Project = mongoose.model('Project', ttSchema);
 
-module.exports = Model;
+module.exports = Project;

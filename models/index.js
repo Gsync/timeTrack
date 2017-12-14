@@ -5,4 +5,4 @@ mongoose.connect('mongodb://localhost:27017/ttrackdb');
 
 mongoose.Promise = Promise;
 
-module.exports.Model = require('./schema');
+module.exports.Project = require('./schema');

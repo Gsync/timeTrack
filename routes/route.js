@@ -4,7 +4,7 @@ const router = express.Router();
 const db = require('../models');
 
 router.get('/', (req, res) => {
-  db.Model.find()
+  db.Project.find()
     .then((p) => {
       res.json(p);
     })
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  db.Model.create(req.body)
+  db.Project.create(req.body)
     .then((newProj) => {
       res.json(newProj);
     })
