@@ -4,6 +4,7 @@ const ttSchema = new mongoose.Schema({
   project: {
     type: String,
     required: 'Name cannot be blank!',
+    unique: true, // enforce that no two projects can have same name
   },
   completed: {
     type: Boolean,
